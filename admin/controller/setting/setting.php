@@ -3,6 +3,7 @@ class ControllerSettingSetting extends Controller {
 	private $error = array();
 
 	public function index() {
+		
 		$this->load->language('setting/setting');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -20,7 +21,7 @@ class ControllerSettingSetting extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('setting/store', 'token=' . $this->session->data['token'], 'SSL'));
+			$this->response->redirect($this->url->link('setting/setting', 'token=' . $this->session->data['token'], 'SSL'));
 		}
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -445,14 +446,14 @@ class ControllerSettingSetting extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL')
+			'href' => $this->url->link('sale/order', 'token=' . $this->session->data['token'], 'SSL')
 		);
-
+/*
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_stores'),
 			'href' => $this->url->link('setting/store', 'token=' . $this->session->data['token'], 'SSL')
 		);
-
+*/
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
 			'href' => $this->url->link('setting/setting', 'token=' . $this->session->data['token'], 'SSL')
@@ -1345,10 +1346,10 @@ class ControllerSettingSetting extends Controller {
 		if ((utf8_strlen($this->request->post['config_email']) > 96) || !preg_match('/^[^\@]+@.*.[a-z]{2,15}$/i', $this->request->post['config_email'])) {
 			$this->error['email'] = $this->language->get('error_email');
 		}
-
+/*
 		if ((utf8_strlen($this->request->post['config_telephone']) < 3) || (utf8_strlen($this->request->post['config_telephone']) > 32)) {
 			$this->error['telephone'] = $this->language->get('error_telephone');
-		}
+		}*/
 
 		if (!$this->request->post['config_meta_title']) {
 			$this->error['meta_title'] = $this->language->get('error_meta_title');

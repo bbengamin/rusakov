@@ -32,11 +32,11 @@
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-store" class="form-horizontal">
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-general" data-toggle="tab"><?php echo $tab_general; ?></a></li>
-            <li><a href="#tab-store" data-toggle="tab"><?php echo $tab_store; ?></a></li>
-            <li><a href="#tab-local" data-toggle="tab"><?php echo $tab_local; ?></a></li>
+           <!--   <li><a href="#tab-store" data-toggle="tab"><?php echo $tab_store; ?></a></li>
+          <li><a href="#tab-local" data-toggle="tab"><?php echo $tab_local; ?></a></li>
             <li><a href="#tab-option" data-toggle="tab"><?php echo $tab_option; ?></a></li>
             <li><a href="#tab-image" data-toggle="tab"><?php echo $tab_image; ?></a></li>
-            <li><a href="#tab-server" data-toggle="tab"><?php echo $tab_server; ?></a></li>
+            <li><a href="#tab-server" data-toggle="tab"><?php echo $tab_server; ?></a></li>-->
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab-general">
@@ -49,7 +49,7 @@
                   <?php } ?>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group hidden">
                 <label class="col-sm-2 control-label" for="input-ssl"><span data-toggle="tooltip" data-html="true" title="<?php echo $help_ssl; ?>"><?php echo $entry_ssl; ?></span></label>
                 <div class="col-sm-10">
                   <input type="text" name="config_ssl" value="<?php echo $config_ssl; ?>" placeholder="<?php echo $entry_ssl; ?>" id="input-ssl" class="form-control" />
@@ -64,25 +64,25 @@
                   <?php } ?>
                 </div>
               </div>
-              <div class="form-group required">
+              <div class="form-group required hidden">
                 <label class="col-sm-2 control-label" for="input-owner"><?php echo $entry_owner; ?></label>
                 <div class="col-sm-10">
-                  <input type="text" name="config_owner" value="<?php echo $config_owner; ?>" placeholder="<?php echo $entry_owner; ?>" id="input-owner" class="form-control" />
+                  <input type="text" name="config_owner" value="hidden" placeholder="<?php echo $entry_owner; ?>" id="input-owner" class="form-control" />
                   <?php if ($error_owner) { ?>
                   <div class="text-danger"><?php echo $error_owner; ?></div>
                   <?php } ?>
                 </div>
               </div>
-              <div class="form-group required">
+              <div class="form-group required hidden">
                 <label class="col-sm-2 control-label" for="input-address"><?php echo $entry_address; ?></label>
                 <div class="col-sm-10">
-                  <textarea name="config_address" rows="5" placeholder="<?php echo $entry_address; ?>" id="input-address" class="form-control"><?php echo $config_address; ?></textarea>
+                  <textarea name="config_address" rows="5" placeholder="<?php echo $entry_address; ?>" id="input-address" class="form-control">hidden</textarea>
                   <?php if ($error_address) { ?>
                   <div class="text-danger"><?php echo $error_address; ?></div>
                   <?php } ?>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group hidden">
                 <label class="col-sm-2 control-label" for="input-geocode"><span data-toggle="tooltip" data-container="#tab-general" title="<?php echo $help_geocode; ?>"><?php echo $entry_geocode; ?></span></label>
                 <div class="col-sm-10">
                   <input type="text" name="config_geocode" value="<?php echo $config_geocode; ?>" placeholder="<?php echo $entry_geocode; ?>" id="input-geocode" class="form-control" />
@@ -106,32 +106,32 @@
                   <?php } ?>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group hidden">
                 <label class="col-sm-2 control-label" for="input-fax"><?php echo $entry_fax; ?></label>
                 <div class="col-sm-10">
                   <input type="text" name="config_fax" value="<?php echo $config_fax; ?>" placeholder="<?php echo $entry_fax; ?>" id="input-fax" class="form-control" />
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group hidden">
                 <label class="col-sm-2 control-label" for="input-image"><?php echo $entry_image; ?></label>
                 <div class="col-sm-10"><a href="" id="thumb-image" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
                   <input type="hidden" name="config_image" value="<?php echo $config_image; ?>" id="input-image" />
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group hidden">
                 <label class="col-sm-2 control-label" for="input-open"><span data-toggle="tooltip" title="<?php echo $help_open; ?>"><?php echo $entry_open; ?></span></label>
                 <div class="col-sm-10">
                   <textarea name="config_open" rows="5" placeholder="<?php echo $entry_open; ?>" id="input-open" class="form-control"><?php echo $config_open; ?></textarea>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group hidden">
                 <label class="col-sm-2 control-label" for="input-comment"><span data-toggle="tooltip" title="<?php echo $help_comment; ?>"><?php echo $entry_comment; ?></span></label>
                 <div class="col-sm-10">
                   <textarea name="config_comment" rows="5" placeholder="<?php echo $entry_comment; ?>" id="input-comment" class="form-control"><?php echo $config_comment; ?></textarea>
                 </div>
               </div>
               <?php if ($locations) { ?>
-              <div class="form-group">
+              <div class="form-group hidden">
                 <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="<?php echo $help_location; ?>"><?php echo $entry_location; ?></span></label>
                 <div class="col-sm-10">
                   <?php foreach ($locations as $location) { ?>
@@ -151,11 +151,11 @@
               </div>
               <?php } ?>
             </div>
-            <div class="tab-pane" id="tab-store">
-              <div class="form-group required">
+            <div class="tab-pane hidden" id="tab-store">
+              <div class="form-group required hidden">
                 <label class="col-sm-2 control-label" for="input-meta-title"><?php echo $entry_meta_title; ?></label>
                 <div class="col-sm-10">
-                  <input type="text" name="config_meta_title" value="<?php echo $config_meta_title; ?>" placeholder="<?php echo $entry_meta_title; ?>" id="input-meta-title" class="form-control" />
+                  <input type="text" name="config_meta_title" value="hidden" placeholder="<?php echo $entry_meta_title; ?>" id="input-meta-title" class="form-control" />
                   <?php if ($error_meta_title) { ?>
                   <div class="text-danger"><?php echo $error_meta_title; ?></div>
                   <?php } ?>
@@ -203,7 +203,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane" id="tab-local">
+            <div class="tab-pane hidden" id="tab-local">
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-country"><?php echo $entry_country; ?></label>
                 <div class="col-sm-10">
@@ -254,7 +254,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane" id="tab-option">
+            <div class="tab-pane hidden" id="tab-option">
               <fieldset>
                 <legend><?php echo $text_items; ?></legend>
                 <div class="form-group required">
@@ -542,7 +542,7 @@
                 </div>
               </fieldset>
             </div>
-            <div class="tab-pane" id="tab-image">
+            <div class="tab-pane hidden" id="tab-image">
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-logo"><?php echo $entry_logo; ?></label>
                 <div class="col-sm-10"><a href="" id="thumb-logo" data-toggle="image" class="img-thumbnail"><img src="<?php echo $logo; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
@@ -716,7 +716,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane" id="tab-server">
+            <div class="tab-pane hidden" id="tab-server">
               <div class="form-group">
                 <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="<?php echo $help_secure; ?>"><?php echo $entry_secure; ?></span></label>
                 <div class="col-sm-10">

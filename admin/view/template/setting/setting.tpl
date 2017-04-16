@@ -30,7 +30,25 @@
       </div>
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-setting" class="form-horizontal">
-          <ul class="nav nav-tabs">
+          <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
+                  <div class="col-sm-10">
+                    <input type="text" name="config_email" value="<?php echo $config_email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
+                    <?php if ($error_email) { ?>
+                    <div class="text-danger"><?php echo $error_email; ?></div>
+                    <?php } ?>
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="input-telephone"><?php echo $entry_telephone; ?></label>
+                  <div class="col-sm-10">
+                    <input type="text" name="config_telephone" value="<?php echo $config_telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
+                    <?php if ($error_telephone) { ?>
+                    <div class="text-danger"><?php echo $error_telephone; ?></div>
+                    <?php } ?>
+                  </div>
+                </div>
+         <ul class="nav nav-tabs" style='display: none;'>
             <li class="active"><a href="#tab-general" data-toggle="tab"><?php echo $tab_general; ?></a></li>
             <li><a href="#tab-store" data-toggle="tab"><?php echo $tab_store; ?></a></li>
             <li><a href="#tab-local" data-toggle="tab"><?php echo $tab_local; ?></a></li>
@@ -40,7 +58,7 @@
             <li><a href="#tab-mail" data-toggle="tab"><?php echo $tab_mail; ?></a></li>
             <li><a href="#tab-server" data-toggle="tab"><?php echo $tab_server; ?></a></li>
           </ul>
-          <div class="tab-content">
+          <div class="tab-content" style='display: none;'>
             <div class="tab-pane active" id="tab-general">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="input-meta-title"><?php echo $entry_meta_title; ?></label>
@@ -126,24 +144,8 @@
                     <input type="text" name="config_geocode" value="<?php echo $config_geocode; ?>" placeholder="<?php echo $entry_geocode; ?>" id="input-geocode" class="form-control" />
                   </div>
                 </div>
-                <div class="form-group required">
-                  <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
-                  <div class="col-sm-10">
-                    <input type="text" name="config_email" value="<?php echo $config_email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
-                    <?php if ($error_email) { ?>
-                    <div class="text-danger"><?php echo $error_email; ?></div>
-                    <?php } ?>
-                  </div>
-                </div>
-                <div class="form-group required">
-                  <label class="col-sm-2 control-label" for="input-telephone"><?php echo $entry_telephone; ?></label>
-                  <div class="col-sm-10">
-                    <input type="text" name="config_telephone" value="<?php echo $config_telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
-                    <?php if ($error_telephone) { ?>
-                    <div class="text-danger"><?php echo $error_telephone; ?></div>
-                    <?php } ?>
-                  </div>
-                </div>
+          
+                
                 <div class="form-group">
                   <label class="col-sm-2 control-label" for="input-fax"><?php echo $entry_fax; ?></label>
                   <div class="col-sm-10">

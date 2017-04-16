@@ -32,6 +32,28 @@ class ControllerCommonFooter extends Controller {
 				);
 			}
 		}
+		
+		$time = time();
+		if(!isset($this->session->data['timer'])){
+			$this->session->data['timer'] = $time;
+		}
+		
+		if($time - $this->session->data['timer'] < 300){
+			$data['timer'] = 300 - ($time - $this->session->data['timer']);
+			$data['form_text'] = 'С бесплатным прототипом';
+		} else {
+			$data['timer'] = false;
+			$data['form_text'] = 'Без бесплатного прототипа';
+		}
+		
+		$this->load->model('setting/store');
+		$stores = $this->model_setting_store->getStores();
+		$data['store_name'] = "Default";
+		foreach($stores as $store){
+			if($store['url'] == HTTP_SERVER){
+				$data['store_name'] = $store['name'];
+			}
+		}
 
 		$data['contact'] = $this->url->link('information/contact');
 		$data['return'] = $this->url->link('account/return/add', '', 'SSL');
