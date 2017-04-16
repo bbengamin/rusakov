@@ -1,6 +1,7 @@
 <?php
 class ControllerCommonHome extends Controller {
 	public function index() {
+	
 		$this->document->setTitle($this->config->get('config_meta_title'));
 		$this->document->setDescription($this->config->get('config_meta_description'));
 		$this->document->setKeywords($this->config->get('config_meta_keyword'));
@@ -137,11 +138,7 @@ class ControllerCommonHome extends Controller {
 
 		
 	
-		if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
-			$data['logo'] = $server . 'image/' . $this->config->get('config_logo');
-		} else {
-			$data['logo'] = '';
-		}
+		$data['logo'] = $server . 'image/catalog/top-logo.png';
 
 		$this->load->language('common/header');
 

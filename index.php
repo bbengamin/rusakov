@@ -254,8 +254,6 @@ foreach ($query->rows as $result) {
 // Front Controller
 $controller = new Front($registry);
 
-// Maintenance Mode
-$controller->addPreAction(new Action('common/maintenance'));
 
 // SEO URL's
 $controller->addPreAction(new Action('common/seo_url'));
